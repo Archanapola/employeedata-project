@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% include 'cdnlines.html' %}
+    <title></title>
+  </head>
+  <body>
+      {% include 'navbar.html' %}
+           <h1 class="text-center display-2 font-weight-bold shadow-lg mt-2 border" >CHENNAI-EMPLOYEE DATA</h1>
+           <div class="container-fluid">
+             <div class="row">
+               <div class="col-md-4">
+                 <img src="{% static 'images/chennai1.jpg' %}" alt="" style="width:100%; heigth:100%;" class="img-thumbnail">
+
+               </div>
+               <div class="col-md-4">
+                 <img src="{% static 'images/chennai2.jpg' %}" alt="" style="width:100%; heigth:100%;" class="img-thumbnail">
+
+               </div>
+               <div class="col-md-4">
+                 <img src="{% static 'images/chennai3.jpg' %}" alt="" style="width:100%; heigth:100%;" class="img-thumbnail">
+
+               </div>
+
+             </div>
+
+           </div>
+           <div class="container">
+             <div class="row">
+               <div class="offset-md-3 col-md-6">
+                 <form  method="post">
+                    {% csrf_token %}
+                   <input type="text" name="cname" class="form-control" placeholder="company name here..">
+                   <input type="submit" value="search" class="btn btn-success">
+
+                 </form>
+
+               </div>
+
+             </div>
+
+           </div>
+           <br>
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+
+         {% if chennai_data %}
+         <table class="table table-bordered text-center">
+           <thead>
+             <tr>
+               <th>ID</th>
+               <th>First name</th>
+               <th>Last name</th>
+               <th>Email</th>
+               <th>Job</th>
+               <th>Location</th>
+               <th>Salary</th>
+               <th>Company</th>
+               <th>Address</th>
+             </tr>
+           </thead>
+           <tbody>
+             {% for i in chennai_data %}
+             <tr>
+               <td>{{i.id}}</td>
+               <td>{{i.first_name}}</td>
+               <td>{{i.last_name}}</td>
+               <td>{{i.email}}</td>
+               <td>{{i.job}}</td>
+               <td>{{i.location}}</td>
+               <td>{{i.salary}}</td>
+               <td>{{i.company}}</td>
+               <td>{{i.address}}</td>
+             </tr>
+        {% endfor %}
+           </tbody>
+         </table>
+
+         {% else %}
+         <h1>CHENNAI Employee data is not available: </h1>
+      {% endif %}
+       </div>
+
+     </div>
+
+   </div>
+  </body>
+</html>

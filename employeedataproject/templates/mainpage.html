@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% include 'cdnlines.html' %}
+    <title></title>
+  </head>
+  <body>
+    <style media="screen">
+      .jumbotron{
+        margin:100px 100px;
+      }
+      a{
+        margin-left:50px;
+        margin-right:50px;
+      }
+
+    </style>
+    <div class="jumbotron text-center">
+      <a href={% url 'hyd_data' %} class="btn btn-success">HYDERABAD</a>
+      <a href={% url 'bang_data' %} class="btn btn-danger">BANGELORE</a>
+      <a href={% url 'chennai_data' %} class="btn btn-secondary">CHENNAI</a>
+      <a href={% url 'pune_data' %} class="btn btn-primary">PUNE</a>
+
+
+    </div>
+  </body>
+</html>
